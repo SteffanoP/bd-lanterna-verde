@@ -25,7 +25,7 @@ CREATE TABLE Analista (
 CREATE TABLE Administrador (
     email VARCHAR(30) NOT NULL,
     id_admin INTEGER(5) NOT NULL,
-    funcao ENUM(''),
+    funcao ENUM('Diretor', 'Gerente'),
     PRIMARY KEY (id_admin),
     FOREIGN KEY (email) REFERENCES Usuario(email)
                       ON DELETE CASCADE
@@ -86,7 +86,7 @@ CREATE TABLE Comenta (
 CREATE TABLE FazAnalise (
     cpfAnalista INTEGER(11) NOT NULL,
     cnpjEmpresa INTEGER(12) NOT NULL,
-    comentario CHAR(500),
+    comentario TEXT,
     score DECIMAL(3,2),
     autorizada BOOL,
     deadline DATE,
@@ -105,7 +105,7 @@ CREATE TABLE SugestaoDeEmpresa (
     nomeEmpresa VARCHAR(30),
     informacaoContato INTEGER(11),
     idConsumidor INTEGER(5) NOT NULL,
-    descricao CHAR(100),
+    descricao TINYTEXT,
     qtd_sugestao_empresa TINYINT,
     PRIMARY KEY (id_suge),
     FOREIGN KEY (idConsumidor) REFERENCES Consumidor(id_cons)
@@ -117,7 +117,7 @@ CREATE TABLE Noticia (
     id_noti INTEGER(5) NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(30),
     autor VARCHAR(30),
-    corpo VARCHAR(500),
+    corpo MEDIUMTEXT,
     dataHora DATETIME,
     idAdmin INTEGER(5) NOT NULL,
     PRIMARY KEY (id_noti),
@@ -129,7 +129,7 @@ CREATE TABLE Noticia (
 CREATE TABLE SolicitacaoAnalise (
     id_soli INTEGER(5) NOT NULL AUTO_INCREMENT,
     cnpjEmpresa INTEGER(14) NOT NULL,
-    descricao CHAR(200),
+    descricao TINYTEXT,
     dataHora DATETIME,
     PRIMARY KEY (id_soli),
     FOREIGN KEY (cnpjEmpresa) REFERENCES Empresa(cnpj)
