@@ -60,7 +60,7 @@ CREATE TABLE Consumidor (
 CREATE TABLE Avalia (
     idConsumidor INTEGER(5) NOT NULL,
     cnpjEmpresa INTEGER(14) NOT NULL,
-    nota FLOAT(1,2),
+    nota DECIMAL(2,1),
     PRIMARY KEY (idConsumidor, cnpjEmpresa),
     FOREIGN KEY (idConsumidor) REFERENCES Consumidor(id_cons)
                       ON DELETE CASCADE
@@ -87,7 +87,7 @@ CREATE TABLE FazAnalise (
     cpfAnalista INTEGER(11) NOT NULL,
     cnpjEmpresa INTEGER(12) NOT NULL,
     comentario CHAR(500),
-    score FLOAT(3,2),
+    score DECIMAL(3,2),
     autorizada BOOL,
     deadline DATE,
     PRIMARY KEY (cpfAnalista, cnpjEmpresa),
