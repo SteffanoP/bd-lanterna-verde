@@ -1,15 +1,15 @@
 USE Lanterna_Verde;
 
 CREATE TABLE Usuario (
-    email VARCHAR(30),
+    email VARCHAR(30) NOT NULL,
     nome VARCHAR(30),
     senha VARCHAR(30),
     PRIMARY KEY (email)
 );
 
 CREATE TABLE Analista (
-    email VARCHAR(30),
-    cpf INTEGER(11),
+    email VARCHAR(30) NOT NULL,
+    cpf INTEGER(11) NOT NULL,
     disponivel BOOL,
     especialidade VARCHAR(50),
     PRIMARY KEY (cpf),
@@ -19,8 +19,8 @@ CREATE TABLE Analista (
 );
 
 CREATE TABLE Administrador (
-    email VARCHAR(30),
-    id_admin INTEGER(5),
+    email VARCHAR(30) NOT NULL,
+    id_admin INTEGER(5) NOT NULL,
     funcao ENUM(''),
     PRIMARY KEY (id_admin),
     FOREIGN KEY (email) REFERENCES Usuario(email)
@@ -29,8 +29,8 @@ CREATE TABLE Administrador (
 );
 
 CREATE TABLE Empresa (
-    email VARCHAR(30),
-    cnpj INTEGER(14),
+    email VARCHAR(30) NOT NULL,
+    cnpj INTEGER(14) NOT NULL,
     endereco VARCHAR(100),
     PRIMARY KEY (cnpj),
     FOREIGN KEY (email) REFERENCES Usuario(email)
@@ -39,8 +39,8 @@ CREATE TABLE Empresa (
 );
 
 CREATE TABLE EspecialidadeEmp (
-    cnpjEmpresa INTEGER(14),
-    especialidade VARCHAR(15),
+    cnpjEmpresa INTEGER(14) NOT NULL,
+    especialidade VARCHAR(15) NOT NULL,
     PRIMARY KEY (cnpjEmpresa, especialidade),
     FOREIGN KEY (cnpjEmpresa) REFERENCES Empresa(cnpj)
                       ON DELETE CASCADE
@@ -48,14 +48,14 @@ CREATE TABLE EspecialidadeEmp (
 );
 
 CREATE TABLE Consumidor (
-    id_cons INTEGER(5),
+    id_cons INTEGER(5) NOT NULL AUTO_INCREMENT,
     nome VARCHAR(30),
     PRIMARY KEY (id_cons)
 );
 
 CREATE TABLE Avalia (
-    idConsumidor INTEGER(5),
-    cnpjEmpresa INTEGER(14),
+    idConsumidor INTEGER(5) NOT NULL,
+    cnpjEmpresa INTEGER(14) NOT NULL,
     nota FLOAT(1,2),
     PRIMARY KEY (idConsumidor, cnpjEmpresa),
     FOREIGN KEY (idConsumidor) REFERENCES Consumidor(id_cons)
@@ -67,8 +67,8 @@ CREATE TABLE Avalia (
 );
 
 CREATE TABLE Comenta (
-    idConsumidor INTEGER(5),
-    cnpjEmpresa INTEGER(14),
+    idConsumidor INTEGER(5) NOT NULL,
+    cnpjEmpresa INTEGER(14) NOT NULL,
     comentario CHAR(200),
     PRIMARY KEY (idConsumidor, cnpjEmpresa),
     FOREIGN KEY (idConsumidor) REFERENCES Consumidor(id_cons)
@@ -80,8 +80,8 @@ CREATE TABLE Comenta (
 );
 
 CREATE TABLE FazAnalise (
-    cpfAnalista INTEGER(11),
-    cnpjEmpresa INTEGER(12),
+    cpfAnalista INTEGER(11) NOT NULL,
+    cnpjEmpresa INTEGER(12) NOT NULL,
     comentario CHAR(500),
     score FLOAT(3,2),
     autorizada BOOL,
@@ -96,11 +96,11 @@ CREATE TABLE FazAnalise (
 );
 
 CREATE TABLE SugestaoDeEmpresa (
-    id_suge INTEGER(5),
+    id_suge INTEGER(5) NOT NULL AUTO_INCREMENT,
     cnpj INTEGER(14),
     nomeEmpresa VARCHAR(30),
     informacaoContato INTEGER(11),
-    idConsumidor INTEGER(5),
+    idConsumidor INTEGER(5) NOT NULL,
     descricao CHAR(100),
     qtd_sugestao_empresa TINYINT,
     PRIMARY KEY (id_suge),
@@ -110,12 +110,12 @@ CREATE TABLE SugestaoDeEmpresa (
 );
 
 CREATE TABLE Noticia (
-    id_noti INTEGER(5),
+    id_noti INTEGER(5) NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(30),
     autor VARCHAR(30),
     corpo VARCHAR(500),
     dataHora DATETIME,
-    idAdmin INTEGER(5),
+    idAdmin INTEGER(5) NOT NULL,
     PRIMARY KEY (id_noti),
     FOREIGN KEY (idAdmin) REFERENCES Administrador(id_admin)
                       ON DELETE CASCADE
@@ -123,8 +123,8 @@ CREATE TABLE Noticia (
 );
 
 CREATE TABLE SolicitacaoAnalise (
-    id_soli INTEGER(5),
-    cnpjEmpresa INTEGER(14),
+    id_soli INTEGER(5) NOT NULL AUTO_INCREMENT,
+    cnpjEmpresa INTEGER(14) NOT NULL,
     descricao CHAR(200),
     dataHora DATETIME,
     PRIMARY KEY (id_soli),
