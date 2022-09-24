@@ -1,3 +1,7 @@
+CREATE DATABASE Lanterna_Verde
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8mb3_general_ci;
+
 USE Lanterna_Verde;
 
 CREATE TABLE Usuario (
@@ -5,7 +9,7 @@ CREATE TABLE Usuario (
     nome VARCHAR(30),
     senha VARCHAR(30),
     PRIMARY KEY (email)
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE Analista (
     email VARCHAR(30) NOT NULL,
@@ -16,7 +20,7 @@ CREATE TABLE Analista (
     FOREIGN KEY (email) REFERENCES Usuario(email)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE Administrador (
     email VARCHAR(30) NOT NULL,
@@ -26,7 +30,7 @@ CREATE TABLE Administrador (
     FOREIGN KEY (email) REFERENCES Usuario(email)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE Empresa (
     email VARCHAR(30) NOT NULL,
@@ -36,7 +40,7 @@ CREATE TABLE Empresa (
     FOREIGN KEY (email) REFERENCES Usuario(email)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE EspecialidadeEmp (
     cnpjEmpresa INTEGER(14) NOT NULL,
@@ -45,13 +49,13 @@ CREATE TABLE EspecialidadeEmp (
     FOREIGN KEY (cnpjEmpresa) REFERENCES Empresa(cnpj)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE Consumidor (
     id_cons INTEGER(5) NOT NULL AUTO_INCREMENT,
     nome VARCHAR(30),
     PRIMARY KEY (id_cons)
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE Avalia (
     idConsumidor INTEGER(5) NOT NULL,
@@ -64,7 +68,7 @@ CREATE TABLE Avalia (
     FOREIGN KEY (cnpjEmpresa) REFERENCES  Empresa(cnpj)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE Comenta (
     idConsumidor INTEGER(5) NOT NULL,
@@ -77,7 +81,7 @@ CREATE TABLE Comenta (
     FOREIGN KEY (cnpjEmpresa) REFERENCES  Empresa(cnpj)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE FazAnalise (
     cpfAnalista INTEGER(11) NOT NULL,
@@ -93,7 +97,7 @@ CREATE TABLE FazAnalise (
     FOREIGN KEY (cnpjEmpresa) REFERENCES Empresa(cnpj)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE SugestaoDeEmpresa (
     id_suge INTEGER(5) NOT NULL AUTO_INCREMENT,
@@ -107,7 +111,7 @@ CREATE TABLE SugestaoDeEmpresa (
     FOREIGN KEY (idConsumidor) REFERENCES Consumidor(id_cons)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE Noticia (
     id_noti INTEGER(5) NOT NULL AUTO_INCREMENT,
@@ -120,7 +124,7 @@ CREATE TABLE Noticia (
     FOREIGN KEY (idAdmin) REFERENCES Administrador(id_admin)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
 
 CREATE TABLE SolicitacaoAnalise (
     id_soli INTEGER(5) NOT NULL AUTO_INCREMENT,
@@ -131,4 +135,4 @@ CREATE TABLE SolicitacaoAnalise (
     FOREIGN KEY (cnpjEmpresa) REFERENCES Empresa(cnpj)
                       ON DELETE CASCADE
                       ON UPDATE CASCADE
-);
+) DEFAULT CHAR SET = utf8;
