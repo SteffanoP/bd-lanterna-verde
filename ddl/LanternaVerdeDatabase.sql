@@ -24,7 +24,7 @@ CREATE TABLE Analista (
 
 CREATE TABLE Administrador (
     email VARCHAR(30) NOT NULL,
-    id_admin INTEGER(5) NOT NULL,
+    id_admin INTEGER(5) NOT NULL AUTO_INCREMENT,
     funcao ENUM('Diretor', 'Gerente'),
     PRIMARY KEY (id_admin),
     FOREIGN KEY (email) REFERENCES Usuario(email)
@@ -85,7 +85,7 @@ CREATE TABLE Comenta (
 
 CREATE TABLE FazAnalise (
     cpfAnalista INTEGER(11) NOT NULL,
-    cnpjEmpresa INTEGER(12) NOT NULL,
+    cnpjEmpresa INTEGER(14) NOT NULL,
     comentario TEXT,
     score DECIMAL(3,2),
     autorizada BOOL,
@@ -102,7 +102,7 @@ CREATE TABLE FazAnalise (
 CREATE TABLE SugestaoDeEmpresa (
     id_suge INTEGER(5) NOT NULL AUTO_INCREMENT,
     cnpj INTEGER(14),
-    nomeEmpresa VARCHAR(30),
+    nomeEmpresa VARCHAR(30) NOT NULL,
     informacaoContato INTEGER(11),
     idConsumidor INTEGER(5) NOT NULL,
     descricao TINYTEXT,
@@ -115,7 +115,7 @@ CREATE TABLE SugestaoDeEmpresa (
 
 CREATE TABLE Noticia (
     id_noti INTEGER(5) NOT NULL AUTO_INCREMENT,
-    titulo VARCHAR(30),
+    titulo VARCHAR(30) NOT NULL,
     autor VARCHAR(30),
     corpo MEDIUMTEXT,
     dataHora DATETIME,
