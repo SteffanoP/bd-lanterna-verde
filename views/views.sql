@@ -34,3 +34,24 @@ FROM empresa INNER JOIN fazanalise on empresa.cnpj = fazanalise.cnpjEmpresa;
 # Consultar Análises de Empresas para mostrar sua reputação a partir da View
 SELECT cnpj, AVG(score) FROM relatorio_empresa
 WHERE cnpj = '315487432';
+
+-- View para comentarios de consumidores
+CREATE OR REPLACE VIEW comentarios AS
+SELECT empresa.cnpj,
+consumidor.nome AS 'Consumidor', 
+comentario AS 'Comentario' 
+FROM consumidor, comenta, empresa, usuario
+WHERE idConsumidor=id_cons AND empresa.email=usuario.email;
+
+-- Consulta por empresa
+SELECT * FROM comentarios WHERE cnpj=146745612;
+
+-- View para solicitacoes de analise
+CREATE OR REPLACE VIEW solicitacoesdeanalise AS
+SELECT cnpjEmpresa, 
+descricao AS 'Descrição', 
+dataHora AS 'Data' 
+FROM solicitacaoanalise;
+
+-- Consulta de solicitacoes
+SELECT * FROM solicitacoesdeanalise;
