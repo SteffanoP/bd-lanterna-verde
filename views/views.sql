@@ -15,6 +15,15 @@ CREATE OR REPLACE VIEW relatorio_empresa AS
 SELECT Empresa.cnpj, FazAnalise.comentario, FazAnalise.score, FazAnalise.deadline
 FROM Empresa INNER JOIN FazAnalise on Empresa.cnpj = FazAnalise.cnpjEmpresa;
 
+# Consulta relatorio de sugestão de empresas
+
+SELECT cnpj,nomeEmpresa,descricao FROM SugestaoDeEmpresa 
+WHERE cnpj = '315487432';
+
+# Consultar se um Analista está disponível para fazer Análises;
+
+SELECT cpf,disponivel FROM Analista WHERE cpf = '894561231'
+
 # View para pegar as avaliações dos consumidores
 CREATE OR REPLACE VIEW avaliacaoConsumidor AS
 SELECT e.cnpj, a.cnpjEmpresa, a.nota FROM Avalia a
