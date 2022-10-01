@@ -64,9 +64,9 @@ INSERT INTO FazAnalise VALUES
 
 SELECT * FROM SugestaoDeEmpresa;
 INSERT INTO SugestaoDeEmpresa VALUES
-(DEFAULT, NULL, 'Google', NULL, '1', 'A empresa maltrata seus programadores', '1'),
-(DEFAULT, NULL, 'Amazon', NULL, '2', 'Descarte incorreto dos produtos excedidos', '1'),
-(DEFAULT, NULL, 'SpaceX', NULL, '3', 'A empresa produz muito lixo espacial.', '1');
+(DEFAULT, '146745612', 'Google', '819999999', '1', 'A empresa maltrata seus programadores', '1'),
+(DEFAULT, '315487432', 'Amazon', '818888888', '2', 'Descarte incorreto dos produtos excedidos', '1'),
+(DEFAULT, '254796863', 'SpaceX', '8177777777', '3', 'A empresa produz muito lixo espacial.', '1');
 
 SELECT * FROM Noticia;
 INSERT INTO Noticia VALUES
