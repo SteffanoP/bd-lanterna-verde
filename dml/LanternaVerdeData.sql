@@ -59,6 +59,7 @@ SELECT * FROM FazAnalise;
 INSERT INTO FazAnalise VALUES
 ('245678912', '146745612', 'A empresa não apresenta falhas nas suas políticas sustentáveis.', '5', True, '2022-9-26'),
 ('894561231', '315487432', 'A empresa apresenta falhas nas suas políticas sustentáveis.', '2.50', False, '2022-10-10'),
+('692581478', '315487432', 'Empresa nota 10.', '9', True, '2022-9-30'),
 ('692581478', '254796863', 'A empresa não apresenta falhas consideráveis nas suas políticas sustentáveis.', '4.7', True, '2022-9-9');
 
 SELECT * FROM SugestaoDeEmpresa;
