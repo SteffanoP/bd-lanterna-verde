@@ -64,18 +64,18 @@ INSERT INTO FazAnalise VALUES
 
 SELECT * FROM SugestaoDeEmpresa;
 INSERT INTO SugestaoDeEmpresa VALUES
-(DEFAULT, NULL, 'Google', NULL, '1', NULL, '1'),
+(DEFAULT, NULL, 'Google', NULL, '1', 'A empresa maltrata seus programadores', '1'),
 (DEFAULT, NULL, 'Amazon', NULL, '2', 'Descarte incorreto dos produtos excedidos', '1'),
 (DEFAULT, NULL, 'SpaceX', NULL, '3', 'A empresa produz muito lixo espacial.', '1');
 
 SELECT * FROM Noticia;
 INSERT INTO Noticia VALUES
 (DEFAULT, 'Empresa x ganha prêmio', 'Giovani', 'Após avalização baixa no site Lanter Verde, a empresa resolveu rever suas atitudes e a melhora foi excelente.', '2022-09-26 11:02:00', '1'),
-(DEFAULT, 'Empresa perde pontos', 'Carla', NULL, '2022-09-22 10:30:20', '2'),
-(DEFAULT, 'Empresa do grupo x cresce', 'Luana', NULL, '2022-09-20 19:02:00', '3');
+(DEFAULT, 'Empresa perde pontos', 'Carla', 'Empresa perde pontos por ser muito ruim', '2022-09-22 10:30:20', '2'),
+(DEFAULT, 'Empresa do grupo x cresce', 'Luana', 'Empresa do grupo x se destaca pelo seu processo de reciclagem', '2022-09-20 19:02:00', '3');
 
 SELECT * FROM SolicitacaoAnalise;
 INSERT INTO SolicitacaoAnalise VALUES
-(DEFAULT, '146745612', NULL, '2022-09-26 11:08:00'),
+(DEFAULT, '146745612', 'Peço a avaliação da empresa, pois não aguento tanto comercial lixo', '2022-09-26 11:08:00'),
 (DEFAULT, '315487432', 'Peço a avaliação da empresa, pois ela descarta seu lixo de maneira incorreta', '2022-09-26 11:08:00'),
 (DEFAULT, '254796863', 'A empresa pode não estar reciclando seus tecidos como diz que faz', '2022-09-26 11:08:00');
