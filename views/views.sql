@@ -32,8 +32,8 @@ CREATE OR REPLACE VIEW comentarios AS
 SELECT Empresa.cnpj,
 Consumidor.nome AS 'Consumidor',
 Comentario AS 'Comentario'
-FROM Consumidor, Comenta, Empresa, Usuario
-WHERE idConsumidor=id_cons AND Empresa.email=Usuario.email;
+FROM Consumidor, Comenta, Empresa
+WHERE idConsumidor=id_cons;
 
 -- Consulta por empresa
 SELECT * FROM comentarios WHERE cnpj=146745612;
